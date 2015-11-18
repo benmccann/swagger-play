@@ -1,12 +1,12 @@
-import com.wordnik.swagger.config.{ScannerFactory, SwaggerConfig, ConfigFactory}
-import com.wordnik.swagger.model.ApiListing
-import com.wordnik.swagger.reader.ClassReaders
+import io.swagger.config.{ScannerFactory, SwaggerConfig, ConfigFactory}
+import io.swagger.model.ApiListing
+import io.swagger.reader.ClassReaders
 import play.modules.swagger._
 
 import org.specs2.mutable._
 import org.specs2.mock.Mockito
 
-import com.wordnik.swagger.core.SwaggerSpec
+import io.swagger.core.SwaggerSpec
 import scala.Some
 
 

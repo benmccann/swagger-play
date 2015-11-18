@@ -1,14 +1,14 @@
 package play.modules.swagger
 
-import com.wordnik.swagger.config._
-import com.wordnik.swagger.reader._
-import com.wordnik.swagger.core.util.ReaderUtil
+import io.swagger.config._
+import io.swagger.reader._
+import io.swagger.core.util.ReaderUtil
 import play.api.Logger
 
 object ApiListingCache extends ReaderUtil {
-  var cache: Option[Map[String, com.wordnik.swagger.model.ApiListing]] = None
+  var cache: Option[Map[String, io.swagger.model.ApiListing]] = None
 
-  def listing(docRoot: String): Option[Map[String, com.wordnik.swagger.model.ApiListing]] = {
+  def listing(docRoot: String): Option[Map[String, io.swagger.model.ApiListing]] = {
     cache.orElse{
       Logger("swagger").info("Loading API metadata")
       ClassReaders.reader.map{reader =>

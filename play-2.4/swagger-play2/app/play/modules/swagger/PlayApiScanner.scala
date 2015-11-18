@@ -1,8 +1,8 @@
 package play.modules.swagger
 
-import com.wordnik.swagger.annotations.Api
-import com.wordnik.swagger.core.SwaggerContext
-import com.wordnik.swagger.config._
+import io.swagger.annotations.Api
+import io.swagger.core.SwaggerContext
+import io.swagger.config._
 
 import play.api.Logger
 import play.api.routing.Router

@@ -1,7 +1,7 @@
 import testdata._
 
-import com.wordnik.swagger.converter._
-import com.wordnik.swagger.core.util._
+import io.swagger.converter._
+import io.swagger.core.util._
 
 import play.modules.swagger._
 

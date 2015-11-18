@@ -1,5 +1,5 @@
 name := "swagger-play2"
-version := "1.3.13"
+version := "1.5.0-SNAPSHOT"
 
 checksums in update := Nil
 
@@ -7,8 +7,8 @@ scalaVersion:= "2.11.6"
 crossScalaVersions := Seq("2.11.6", "2.11.7")
 
 libraryDependencies ++= Seq(
-  "org.slf4j"          % "slf4j-api"       % "1.6.4",
-  "com.wordnik"       %% "swagger-jaxrs"   % "1.3.12",
+  "org.slf4j"          % "slf4j-api"       % "1.7.13",
+  "io.swagger"         % "swagger-jaxrs"   % "1.5.4",
   "com.typesafe.play" %% "play-ebean"      % "2.0.0"            % "test",
   "org.specs2"        %% "specs2-core"     % "3.6"              % "test",
   "org.specs2"        %% "specs2-mock"     % "3.6"              % "test",
@@ -25,7 +25,7 @@ publishArtifact in Test := false
 publishMavenStyle := true
 pomIncludeRepository := { x => false }
 credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
-organization := "com.wordnik"
+organization := "io.swagger"
 pomExtra :=
   <url>http://swagger.io</url>
   <licenses>

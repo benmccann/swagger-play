@@ -26,10 +26,10 @@ import javax.xml.bind.annotation._
 
 import java.io.StringWriter
 
-import com.wordnik.swagger.core.util.JsonSerializer
-import com.wordnik.swagger.model.{ApiListing, ApiListingReference, ResourceListing}
-import com.wordnik.swagger.core.filter.SpecFilter
-import com.wordnik.swagger.config.{ConfigFactory, FilterFactory}
+import io.swagger.core.util.JsonSerializer
+import io.swagger.model.{ApiListing, ApiListingReference, ResourceListing}
+import io.swagger.core.filter.SpecFilter
+import io.swagger.config.{ConfigFactory, FilterFactory}
 
 object ErrorResponse {
   val ERROR = 1
@@ -126,13 +126,13 @@ class SwaggerBaseApiController extends Controller {
     }).toMap
 
     val f = new SpecFilter
-    val l: Option[Map[String, com.wordnik.swagger.model.ApiListing]] = ApiListingCache.listing(docRoot)
+    val l: Option[Map[String, io.swagger.model.ApiListing]] = ApiListingCache.listing(docRoot)
 
-    val specs: List[com.wordnik.swagger.model.ApiListing] = l match {
+    val specs: List[io.swagger.model.ApiListing] = l match {
       case Some(m) => m.map(_._2).toList
       case _ => List()
     }
-    // val specs = l.getOrElse(Map: Map[String, com.wordnik.swagger.model.ApiListing] ()).map(_._2).toList
+    // val specs = l.getOrElse(Map: Map[String, io.swagger.model.ApiListing] ()).map(_._2).toList
     val listings = (for (spec <- specs)
       yield f.filter(spec, FilterFactory.filter, queryParams, cookies, headers)
     ).filter(m => m.apis.size > 0)

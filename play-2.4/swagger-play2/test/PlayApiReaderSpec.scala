@@ -5,9 +5,9 @@ import org.specs2.mock.Mockito
 
 import test.testdata.DogController
 
-import com.wordnik.swagger.core.SwaggerSpec
-import com.wordnik.swagger.config.SwaggerConfig
-import com.wordnik.swagger.model._
+import io.swagger.core.SwaggerSpec
+import io.swagger.config.SwaggerConfig
+import io.swagger.model._
 
 import org.mockito.Mockito._
 

@@ -1,15 +1,15 @@
 package play.modules.swagger
 
-import com.wordnik.swagger.annotations._
-import com.wordnik.swagger.config._
-import com.wordnik.swagger.core.util._
-import com.wordnik.swagger.jaxrs.{MutableParameter, JaxrsApiReader}
-import com.wordnik.swagger.model.Parameter
-import com.wordnik.swagger.model.ApiDescription
-import com.wordnik.swagger.model.Operation
-import com.wordnik.swagger.model.ResponseMessage
-import com.wordnik.swagger.core.ApiValues._
-import com.wordnik.swagger.model.ApiListing
+import io.swagger.annotations._
+import io.swagger.config._
+import io.swagger.core.ApiValues._
+import io.swagger.core.util._
+import io.swagger.jaxrs.{MutableParameter, Reader}
+import io.swagger.model.ApiDescription
+import io.swagger.model.ApiListing
+import io.swagger.models.Operation
+import io.swagger.model.ResponseMessage
+import io.swagger.models.parameters.Parameter
 
 import play.api.Logger
 
@@ -31,7 +31,7 @@ object SwaggerUtils {
   }
 }
 
-class PlayApiReader(val routes: Option[Router]) extends JaxrsApiReader {
+class PlayApiReader(val routes: Option[Router]) extends Reader(null) {
 
   private var _routesCache: Map[String, RouteEntry] = null
 
@@ -221,7 +221,7 @@ class PlayApiReader(val routes: Option[Router]) extends JaxrsApiReader {
           consumes,
           protocols,
           List(),
-          ModelUtil.stripPackages(apiDescriptions), //  List[com.wordnik.swagger.model.ApiDescription]
+          ModelUtil.stripPackages(apiDescriptions), //  List[io.swagger.model.ApiDescription]
           models,
           description
           // position
@@ -261,11 +261,11 @@ class PlayApiReader(val routes: Option[Router]) extends JaxrsApiReader {
         case e: String if e.trim != "" => e.split(",").map(_.trim).toList
         case _ => List()
       }
-      val authorizations: List[com.wordnik.swagger.model.Authorization] = Option(apiOperation.authorizations) match {
+      val authorizations: List[io.swagger.model.Authorization] = Option(apiOperation.authorizations) match {
         case Some(e) => (for(a <- e) yield {
-          val scopes = (for(s <- a.scopes) yield com.wordnik.swagger.model.AuthorizationScope(s.scope, s.description)).toArray
+          val scopes = (for(s <- a.scopes) yield io.swagger.model.AuthorizationScope(s.scope, s.description)).toArray
           if(a.value != null && !"".equals(a.value))
-            Some(new com.wordnik.swagger.model.Authorization(a.value, scopes))
+            Some(new io.swagger.model.Authorization(a.value, scopes))
           else
             None
         }).flatten.toList

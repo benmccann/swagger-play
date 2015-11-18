@@ -4,8 +4,8 @@ import org.specs2.mutable._
 import org.specs2.mock.Mockito
 
 import test.testdata.DogController
-import com.wordnik.swagger.core.{SwaggerSpec, SwaggerContext}
-import com.wordnik.swagger.config.SwaggerConfig
+import io.swagger.core.{SwaggerSpec, SwaggerContext}
+import io.swagger.config.SwaggerConfig
 
 import org.mockito.Mockito._
 

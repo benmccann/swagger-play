@@ -1,8 +1,8 @@
 package test.testdata
 
 
-import com.wordnik.swagger.annotations._
-import com.wordnik.swagger.core.util.JsonSerializer
+import io.swagger.annotations._
+import io.swagger.core.util.JsonSerializer
 
 import java.io.IOException
 

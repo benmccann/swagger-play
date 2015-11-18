@@ -19,11 +19,11 @@ package play.modules.swagger
 import java.net.URL
 import javax.inject.Inject
 
-import com.wordnik.swagger.config.{FilterFactory, ScannerFactory, ConfigFactory}
-import com.wordnik.swagger.core.SwaggerContext
-import com.wordnik.swagger.core.filter.SwaggerSpecFilter
-import com.wordnik.swagger.model.ApiInfo
-import com.wordnik.swagger.reader.ClassReaders
+import io.swagger.config.{FilterFactory, ScannerFactory, ConfigFactory}
+import io.swagger.core.SwaggerContext
+import io.swagger.core.filter.SwaggerSpecFilter
+import io.swagger.model.ApiInfo
+import io.swagger.reader.ClassReaders
 import play.api.inject.ApplicationLifecycle
 import play.api.{Logger, Application}
 import play.api.routing.Router
